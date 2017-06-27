@@ -1,0 +1,45 @@
+<template>
+
+  <div class="container mt-4">
+
+    <h4>Add Data Source</h4>
+    <hr/>
+
+    <div class="row justify-content-md-center">
+      <div class="col-md-6 form-group my-5">
+        <label for="selectDataSource">Select a data source</label>
+        <select class="form-control" id="selectDataSource" select2="selected.bind:searchDataSource" data-placeholder="Pick a data source" style="width: 100%">
+          <option></option>
+          <optgroup if.bind="files.length" label="Files">
+            <option repeat.for="option of files">${option.name}</option>
+          </optgroup>
+          <optgroup if.bind="databases.length" label="Databases">
+            <option repeat.for="option of databases">${option.name}</option>
+          </optgroup>
+
+        </select>
+      </div>
+    </div>
+
+    <h5>Files</h5>
+    <hr class="sm">
+
+    <div class="text-center mb-5">
+      <div repeat.for="file of files" class="img-ib" tooltip title.bind="file.name">
+        <img src.bind="'images/data-sources/' + file.image"/>
+      </div>
+    </div>
+
+    <h5>Database Server</h5>
+    <hr class="sm">
+
+    <div class="text-center mb-5">
+      <div repeat.for="database of databases" class="img-ib" tooltip title.bind="database.name">
+        <img src.bind="'images/data-sources/' + database.image"/>
+      </div>
+    </div>
+
+
+  </div>
+
+</template>

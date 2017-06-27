@@ -1,0 +1,25 @@
+@import "variables";
+
+.bg-w {
+  background-color: white;
+}
+
+.b-1 {
+  border: 1px solid $border-color;
+}
+
+.bb-1 {
+  border-bottom: 1px solid $border-color;
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+.o-h {
+  overflow: hidden;
+}
+
+.va-m {
+  vertical-align: middle;
+}

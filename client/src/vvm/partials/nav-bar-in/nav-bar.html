@@ -1,0 +1,47 @@
+<template bindable="router">
+
+  <require from="../loading-indicator/loading-indicator"></require>
+  <loading-indicator loading.bind="router.isNavigating"></loading-indicator>
+
+  <nav class="navbar navbar-inverse bg-inverse navbar-toggleable-sm">
+
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#siteNavbarCollapse" aria-controls="siteNavbarCollapse" aria-expanded="true" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <a class="navbar-brand" href="#">Iris</a>
+
+    <div class="navbar-collapse collapse justify-content-end" id="siteNavbarCollapse" aria-expanded="true">
+      <div class="navbar-nav">
+        <div class="nav-item dropdown">
+          <a class="nav-link" id="siteNavbarCollapseDropdownAdd" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span class="hidden-md-up">Add <i class="zmdi zmdi-chevron-right"></i></span>
+            <i class="zmdi zmdi-plus hidden-sm-down"></i>
+          </a>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="siteNavbarCollapseDropdownAdd">
+            <a class="dropdown-item" href="#">New View</a>
+            <a class="dropdown-item" href="#">New Dashboard</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item ${router.currentInstruction.config.name == routes.AddDataSource ? 'disabled' : ''}" route-href="route.bind: routes.AddDataSource">New Data Source</a>
+          </div>
+        </div>
+        <a class="nav-item nav-link ${router.currentInstruction.config.name == routes.Workspace ? 'active' : ''}" route-href="route.bind: routes.Workspace">Workspace</a>
+        <div class="nav-item dropdown">
+          <a class="nav-link" id="siteNavbarCollapseDropdownMore" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span class="hidden-md-up">More <i class="zmdi zmdi-chevron-right"></i></span>
+            <i class="zmdi zmdi-more-vert hidden-sm-down"></i>
+          </a>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="siteNavbarCollapseDropdownMore">
+            <a class="dropdown-item" href="#">Data Sources</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" route-href="route.bind: routes.Test">Test</a>
+            <a class="dropdown-item" href="#">Settings</a>
+            <a class="dropdown-item" href="#">Sign Out</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </nav>
+
+</template>

@@ -1,0 +1,108 @@
+@import "variables";
+@import "../bootstrap/variables";
+@import "../../../node_modules/bootstrap/scss/variables";
+
+/*
+ |--------------------------------------------------------------------------
+ | Navs
+ |--------------------------------------------------------------------------
+*/
+
+.bg-light-nav{
+  background-color: lighten(#eeeeee, 3%);
+}
+
+.navbar-underline {
+  padding-bottom: 0;
+  $border-width: 4px;
+  .nav-link:hover {
+    border-bottom: $border-width solid $border-color;
+  }
+  .nav-link.active {
+    border-bottom: $border-width solid $brand-primary;
+  }
+}
+
+/*
+ |--------------------------------------------------------------------------
+ | Horizontal Ruler
+ |--------------------------------------------------------------------------
+*/
+
+hr {
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #fff;
+  &.sm {
+    margin: 0.5rem 0;
+  }
+}
+
+/*
+ |--------------------------------------------------------------------------
+ | Forms
+ |--------------------------------------------------------------------------
+*/
+
+.form-combined {
+  .form-control {
+    min-height: 3rem;
+  }
+  .form-control-first {
+    margin-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+  .form-control-last {
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+}
+
+.form-small-width {
+  min-width: 300px;
+}
+
+/*
+ |--------------------------------------------------------------------------
+ | Images
+ |--------------------------------------------------------------------------
+*/
+
+.img-ib {
+
+  $img-width: 90px;
+  $img-height: 50px;
+
+  $border-width: 2px;
+  $border-hover-width: 4px;
+  $margin: 5px;
+
+  box-sizing: content-box; /* To overcome bootstrap box-sizing */
+
+  background-color: white;
+  display: inline-block;
+  vertical-align: middle;
+
+  padding: $thumbnail-padding;
+  border-radius: $thumbnail-border-radius;
+
+  width: $img-width;
+  height: $img-height;
+  margin: $margin;
+  border: $border-width solid $border-color;
+
+  &:hover {
+    cursor: pointer;
+    border-color: darken($border-color, 5%);
+
+    border-width: $border-hover-width;
+    margin: $margin - ($border-hover-width - $border-width);
+  }
+
+  img {
+    max-width: $img-width;
+    max-height: $img-height;
+  }
+
+}

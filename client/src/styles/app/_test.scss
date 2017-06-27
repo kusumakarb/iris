@@ -1,0 +1,17 @@
+/*Thumbnails*/
+
+.thumbnail-container {
+
+  a {
+    display: inline-block;
+    margin: 1px 0;
+    :hover {
+      transform: scale(1.15);
+    }
+    img {
+      width: 90px;
+      height: 60px;
+    }
+  }
+
+}

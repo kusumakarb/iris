@@ -1,0 +1,17 @@
+@import "../app/variables";
+
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+  border-left: 0;
+  background: #f8f8f9;
+  border: 1px solid $border-color;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: darken($brand-primary, 40%);
+  border: 2px solid transparent;
+  background-clip: content-box;
+  border-radius: 5px;
+  width: 12px;
+}

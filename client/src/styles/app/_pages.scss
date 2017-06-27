@@ -1,0 +1,38 @@
+/* Center children horizontally placed row by row with wrap */
+.container-center {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.workspace-card {
+
+  $card-width: 19rem;
+
+  display: inline-block;
+  width: $card-width;
+  flex: 0 0 $card-width;
+  margin: 0.5rem;
+
+  .card-img-top {
+    max-width: 100%;
+  }
+
+  .card-title a {
+    text-decoration: none;
+  }
+
+  $desciption-height: 10rem;
+  .card-text {
+    height: $desciption-height;
+  }
+  .empty-desc {
+    line-height: $desciption-height;
+  }
+
+  &:hover .select-control {
+    display: inline-block !important;
+  }
+}

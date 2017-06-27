@@ -1,0 +1,59 @@
+@import "../bootstrap/variables";
+@import "~bootstrap/scss/variables";
+
+///////////////////////////////////////////////////////////////////////////////
+// Bootstrap
+///////////////////////////////////////////////////////////////////////////////
+
+// https://github.com/twbs/bootstrap-rubygem/issues/77
+button, input, optgroup, select, textarea {
+  font-family: $font-family-sans-serif;
+}
+
+///////////////////////////////////////////////////////////////////////////////
+// Plotly
+///////////////////////////////////////////////////////////////////////////////
+
+.js-plotly-plot .plotly, .js-plotly-plot .plotly div, .plotly-notifier {
+  font-family: $font-family-sans-serif !important;
+}
+
+.plotly-notifier .notifier-note {
+  background-color: $brand-primary !important;
+}
+
+.js-plotly-plot .plotly {
+
+  [data-title]::after {
+    background: $brand-primary !important;
+  }
+
+  .modebar-btn {
+    path {
+      fill: rgba($gray-dark, 0.4) !important;
+    }
+    &.active path, &:hover path {
+      fill: rgba($gray-dark, 0.8) !important;
+    }
+  }
+
+  .modebar {
+    $spacing: 1rem;
+    .modebar-group {
+      margin-left: $spacing;
+    }
+    .modebar-group:after {
+      content: '|';
+      color: rgba($gray-light, 0.2);
+      padding-left: $spacing;
+    }
+    .modebar-group:last-child:after {
+      content: '';
+    }
+  }
+}
+
+.js-plotly-plot .plotly .modebar {
+
+}
+
