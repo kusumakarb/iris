@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const {AureliaPlugin} = require('aurelia-webpack-plugin');
-const {optimize: {CommonsChunkPlugin}, ProvidePlugin, DefinePlugin} = require('webpack')
+const {optimize: {CommonsChunkPlugin}, ProvidePlugin, DefinePlugin, IgnorePlugin} = require('webpack')
 const {TsConfigPathsPlugin, CheckerPlugin} = require('awesome-typescript-loader');
 
 // config helpers:
@@ -71,6 +71,15 @@ module.exports = ({production, server, extractCss, coverage} = {}) => ({
       {test: /\.json$/i, loader: 'json-loader'},
       // use Bluebird as the global Promise implementation:
       {test: /[\/\\]node_modules[\/\\]bluebird[\/\\].+\.js$/, loader: 'expose-loader?Promise'},
+      // Blueimp File upload
+      {
+        test: /\.js/,
+        include: [
+          path.join(__dirname, 'node_modules/blueimp-file-upload'),
+          path.join(__dirname, 'node_modules/blueimp-load-image'),
+        ],
+        loader: 'imports-loader?define=>false,exports=>false'
+      },
       // exposes jQuery globally as $ and as jQuery:
       {test: require.resolve('jquery'), loader: 'expose-loader?$!expose-loader?jQuery'},
       // Plotly.js
@@ -121,6 +130,7 @@ module.exports = ({production, server, extractCss, coverage} = {}) => ({
       __DEBUG__: false,
       __VERSION__: JSON.stringify(require('./package.json').version)
     }),
+    // new IgnorePlugin(/plotly.js\/build/, /plotly\.js\/src\/core$/),
     ...when(extractCss, new ExtractTextPlugin({
       filename: production ? '[contenthash].css' : '[id].css',
       allChunks: true,

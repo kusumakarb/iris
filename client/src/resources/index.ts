@@ -7,6 +7,7 @@ export function configure(aurelia) {
     PLATFORM.moduleName('../lib/aurelia/attributes/tooltip'),
     PLATFORM.moduleName('../lib/aurelia/attributes/ui-jq'),
     /* Converters */
+    PLATFORM.moduleName('../lib/aurelia/converters/file-size'),
     PLATFORM.moduleName('../lib/aurelia/converters/json'),
     PLATFORM.moduleName('../lib/aurelia/converters/number-format'),
     PLATFORM.moduleName('../lib/aurelia/converters/object-iterator'),

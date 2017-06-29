@@ -7,12 +7,7 @@ import {Constants} from "../../../config/constants";
 export class Test {
 
   attached() {
-    this.colorpicker();
-    this.handsontable();
-  }
-
-  handsontable() {
-
+    // this.colorpicker();
   }
 
   colorpicker() {
