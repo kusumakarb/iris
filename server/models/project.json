@@ -1,0 +1,46 @@
+{
+  "name": "Project",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": false
+  },
+  "mixins": {
+    "TimeStamp": true
+  },
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "length": 256
+    },
+    "description": {
+      "type": "string",
+      "length": 4096
+    },
+    "views": {
+      "type": "number",
+      "default": 0
+    }
+  },
+  "validations": [],
+  "relations": {
+    "userId": {
+      "type": "belongsTo",
+      "model": "User",
+      "foreignKey": "userId"
+    },
+    "workbooks": {
+      "type": "hasMany",
+      "model": "Workbook",
+      "foreignKey": "projectId"
+    },
+    "worksheets": {
+      "type": "hasMany",
+      "model": "Worksheet",
+      "foreignKey": "projectId"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

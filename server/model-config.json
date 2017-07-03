@@ -10,7 +10,8 @@
       "loopback/common/mixins",
       "loopback/server/mixins",
       "../common/mixins",
-      "./mixins"
+      "./mixins",
+      "../node_modules/loopback-ds-timestamp-mixin"
     ]
   },
   "User": {
@@ -34,5 +35,33 @@
   "Role": {
     "dataSource": "db",
     "public": false
+  },
+  "Project": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Workbook": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Worksheet": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Dsn": {
+    "dataSource": "db",
+    "public": true
+  },
+  "DsnDb": {
+    "dataSource": "db",
+    "public": true
+  },
+  "DsnTable": {
+    "dataSource": "db",
+    "public": true
+  },
+  "DsnColumn": {
+    "dataSource": "db",
+    "public": true
   }
 }

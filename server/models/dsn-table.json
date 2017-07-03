@@ -1,0 +1,42 @@
+{
+  "name": "DsnTable",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": false
+  },
+  "mixins": {
+    "TimeStamp": true
+  },
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "userId": {
+      "type": "belongsTo",
+      "model": "User",
+      "foreignKey": "userId"
+    },
+    "dsnId": {
+      "type": "belongsTo",
+      "model": "Dsn",
+      "foreignKey": "dsnId"
+    },
+    "dsnDbId": {
+      "type": "belongsTo",
+      "model": "DsnDb",
+      "foreignKey": "dsnDbId"
+    },
+    "dsnColumns": {
+      "type": "hasMany",
+      "model": "DsnColumn",
+      "foreignKey": "dsnColumnId"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

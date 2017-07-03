@@ -8,8 +8,11 @@
  |--------------------------------------------------------------------------
 */
 
-.bg-light-nav{
-  background-color: lighten(#eeeeee, 3%);
+.bg-nav-light{
+  background-color: lighten($brand-primary, 37%);
+}
+.bg-nav-light2{
+  background-color: lighten($brand-primary, 40%);
 }
 
 .navbar-underline {

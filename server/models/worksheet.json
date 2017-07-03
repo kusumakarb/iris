@@ -1,0 +1,46 @@
+{
+  "name": "Worksheet",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": false
+  },
+  "mixins": {
+    "TimeStamp": true
+  },
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "length": 256
+    },
+    "views": {
+      "type": "number",
+      "default": 0
+    },
+    "favorites": {
+      "type": "number",
+      "default": 0
+    }
+  },
+  "validations": [],
+  "relations": {
+    "userId": {
+      "type": "belongsTo",
+      "model": "User",
+      "foreignKey": "userId"
+    },
+    "projectId": {
+      "type": "belongsTo",
+      "model": "Project",
+      "foreignKey": "projectId"
+    },
+    "workbookId": {
+      "type": "belongsTo",
+      "model": "Workbook",
+      "foreignKey": "workbookId"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

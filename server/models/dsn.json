@@ -1,0 +1,57 @@
+{
+  "name": "Dsn",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": false
+  },
+  "mixins": {
+    "TimeStamp": true
+  },
+  "properties": {
+    "connector": {
+      "type": "string",
+      "required": true
+    },
+    "host": {
+      "type": "string"
+    },
+    "port": {
+      "type": "number"
+    },
+    "username": {
+      "type": "string"
+    },
+    "password": {
+      "type": "string"
+    },
+    "displayName": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "userId": {
+      "type": "belongsTo",
+      "model": "User",
+      "foreignKey": "userId"
+    },
+    "dsnDbs": {
+      "type": "hasMany",
+      "model": "DsnDb",
+      "foreignKey": "dsnDbId"
+    },
+    "dsnTables": {
+      "type": "hasMany",
+      "model": "DsnTable",
+      "foreignKey": "dsnTableId"
+    },
+    "dsnColumns": {
+      "type": "hasMany",
+      "model": "DsnColumn",
+      "foreignKey": "dsnColumnId"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}
