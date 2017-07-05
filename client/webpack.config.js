@@ -139,4 +139,4 @@ module.exports = ({production, server, extractCss, coverage} = {}) => ({
       name: 'common'
     }))
   ],
-})
+});

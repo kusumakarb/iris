@@ -1,15 +1,12 @@
 {
   "name": "iris",
   "version": "1.0.0",
-  "main": "server/server.js",
-  "author": "Gowrav Shekar <gowrav@scienaptic.com>",
+  "author": "Gowrav Shekar <gowravshekar@googlemail.com>",
   "engines": {
     "node": ">=4"
   },
   "scripts": {
-    "lint": "eslint .",
-    "start": "node .",
-    "posttest": "npm run lint && nsp check"
+    "start": "nps"
   },
   "dependencies": {
     "compression": "^1.0.3",
@@ -24,9 +21,12 @@
     "strong-error-handler": "^2.0.0"
   },
   "devDependencies": {
+    "electron-packager": "^8.7.2",
+    "electron-prebuilt": "^1.4.13",
     "eslint": "^3.17.1",
     "eslint-config-loopback": "^8.0.0",
     "loopback-component-visualizer": "^1.2.0",
+    "nodemon": "^1.11.0",
     "nsp": "^2.1.0"
   },
   "repository": {

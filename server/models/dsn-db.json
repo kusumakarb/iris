@@ -1,5 +1,5 @@
 {
-  "name": "DsnDb",
+  "name": "dsnDb",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
@@ -18,22 +18,22 @@
   "relations": {
     "userId": {
       "type": "belongsTo",
-      "model": "User",
+      "model": "user",
       "foreignKey": "userId"
     },
     "dsnId": {
       "type": "belongsTo",
-      "model": "Dsn",
+      "model": "dsn",
       "foreignKey": "dsnId"
     },
     "dsnTables": {
       "type": "hasMany",
-      "model": "DsnTable",
+      "model": "dsnTable",
       "foreignKey": "dsnTableId"
     },
     "dsnColumns": {
       "type": "hasMany",
-      "model": "DsnColumn",
+      "model": "dsnColumn",
       "foreignKey": "dsnColumnId"
     }
   },

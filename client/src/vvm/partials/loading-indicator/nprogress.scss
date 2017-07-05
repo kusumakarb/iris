@@ -3,10 +3,12 @@
 /* Make clicks pass-through */
 #nprogress {
 
+  $progress-color: $brand-primary;
+
   pointer-events: none;
 
   .bar {
-    background: $brand-primary;
+    background: $progress-color;
 
     position: fixed;
     z-index: 1031;
@@ -24,7 +26,7 @@
     right: 0px;
     width: 100px;
     height: 100%;
-    box-shadow: 0 0 10px $brand-primary, 0 0 5px $brand-primary;
+    box-shadow: 0 0 10px $progress-color, 0 0 5px $progress-color;
     opacity: 1.0;
 
     transform: rotate(3deg) translate(0px, -4px);
@@ -45,8 +47,8 @@
     box-sizing: border-box;
 
     border: solid 2px transparent;
-    border-top-color: lighten($brand-primary, 20%);
-    border-left-color: lighten($brand-primary, 20%);
+    border-top-color: lighten($progress-color, 20%);
+    border-left-color: lighten($progress-color, 20%);
     border-radius: 50%;
 
     animation: nprogress-spinner 400ms linear infinite;

@@ -1,5 +1,5 @@
 {
-  "name": "Dsn",
+  "name": "dsn",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
@@ -13,18 +13,6 @@
       "type": "string",
       "required": true
     },
-    "host": {
-      "type": "string"
-    },
-    "port": {
-      "type": "number"
-    },
-    "username": {
-      "type": "string"
-    },
-    "password": {
-      "type": "string"
-    },
     "displayName": {
       "type": "string"
     }
@@ -33,22 +21,22 @@
   "relations": {
     "userId": {
       "type": "belongsTo",
-      "model": "User",
+      "model": "user",
       "foreignKey": "userId"
     },
     "dsnDbs": {
       "type": "hasMany",
-      "model": "DsnDb",
+      "model": "dsnDb",
       "foreignKey": "dsnDbId"
     },
     "dsnTables": {
       "type": "hasMany",
-      "model": "DsnTable",
+      "model": "dsnTable",
       "foreignKey": "dsnTableId"
     },
     "dsnColumns": {
       "type": "hasMany",
-      "model": "DsnColumn",
+      "model": "dsnColumn",
       "foreignKey": "dsnColumnId"
     }
   },
