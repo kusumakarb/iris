@@ -34,7 +34,7 @@
     <hr class="sm">
 
     <div class="text-center mb-5">
-      <div repeat.for="database of databases" class="img-ib" tooltip title.bind="database.name">
+      <div repeat.for="database of databases" click.delegate="saveDataSourceModal(database)" class="img-ib" tooltip title.bind="database.name">
         <img src.bind="'images/data-sources/' + database.image"/>
       </div>
     </div>

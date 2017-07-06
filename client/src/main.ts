@@ -1,10 +1,11 @@
-﻿declare const __DEBUG__;
-
-/// <reference types="aurelia-loader-webpack/src/webpack-hot-interface"/>
-
-import "vendor";
+﻿import "vendor";
 import {Aurelia} from "aurelia-framework";
 import {PLATFORM} from "aurelia-pal";
+import {aureliaDialog} from "./config/app-config";
+
+declare const __DEBUG__;
+
+/// <reference types="aurelia-loader-webpack/src/webpack-hot-interface"/>
 
 export async function configure(aurelia: Aurelia) {
 
@@ -14,8 +15,8 @@ export async function configure(aurelia: Aurelia) {
     .plugin(PLATFORM.moduleName('aurelia-api'), config => {
       // Registering hosts
       config.registerEndpoint('api', '/');
-    });
-  
+    }).plugin(PLATFORM.moduleName('aurelia-dialog'), config => aureliaDialog(config));
+
   if (__DEBUG__) {
     aurelia.use.developmentLogging();
   }

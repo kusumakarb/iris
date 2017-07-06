@@ -14,13 +14,16 @@
       "../node_modules/loopback-ds-timestamp-mixin"
     ]
   },
-  "User": {
-    "dataSource": "db",
-    "public": false
-  },
   "AccessToken": {
     "dataSource": "db",
-    "public": false
+    "public": true,
+    "relations": {
+      "user": {
+        "type": "belongsTo",
+        "model": "user",
+        "foreignKey": "userId"
+      }
+    }
   },
   "ACL": {
     "dataSource": "db",

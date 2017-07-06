@@ -1,7 +1,7 @@
 import {Routes} from "../../../config/enums";
 import {Id} from "../../../config/types";
 import {RouteViews} from "./interfaces";
-import {isUndefined} from "../../../lib/utils/isUndefined";
+import {isUndefined} from "../../../lib/utils/is-undefined";
 
 export class Workspace {
 

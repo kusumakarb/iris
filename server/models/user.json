@@ -15,6 +15,14 @@
   },
   "validations": [],
   "relations": {
+    "accessTokens": {
+      "model": "AccessToken",
+      "type": "hasMany",
+      "foreignKey": "userId",
+      "options": {
+        "disableInclude": true
+      }
+    },
     "projects": {
       "model": "project",
       "type": "hasMany",
