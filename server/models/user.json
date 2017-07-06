@@ -1,7 +1,7 @@
 {
   "name": "user",
   "base": "User",
-  "idInjection": true,
+  "idInjection": false,
   "options": {
     "validateUpsert": false
   },
@@ -16,37 +16,37 @@
   "validations": [],
   "relations": {
     "projects": {
-      "model": "Project",
+      "model": "project",
       "type": "hasMany",
       "foreignKey": "userId"
     },
     "workbooks": {
-      "model": "Workbook",
+      "model": "workbook",
       "type": "hasMany",
       "foreignKey": "userId"
     },
     "worksheets": {
-      "model": "Worksheet",
+      "model": "worksheet",
       "type": "hasMany",
       "foreignKey": "userId"
     },
     "dsns": {
-      "model": "Dsn",
+      "model": "dsn",
       "type": "hasMany",
       "foreignKey": "userId"
     },
     "dsnDbs": {
-      "model": "DsnDb",
+      "model": "dsnDb",
       "type": "hasMany",
       "foreignKey": "userId"
     },
     "dsnTables": {
-      "model": "DsnTable",
+      "model": "dsnTable",
       "type": "hasMany",
       "foreignKey": "userId"
     },
     "dsnColumns": {
-      "model": "DsnColumn",
+      "model": "dsnColumn",
       "type": "hasMany",
       "foreignKey": "userId"
     }
