@@ -2,20 +2,25 @@
 
 const loopback = require('loopback');
 const connectionSchema = require('../../common/schema');
-const Validator = require('validatorjs');
+const validator = require('indicative');
 
-function validateConnectionPar(err) {
+function validateConnectionPar(err, done) {
   const {connector, connectionParams} = this;
   const dbConnSchema = connectionSchema[connector];
-  const validation = new Validator(connectionParams, dbConnSchema);
-  if (validation.fails()) {
-    err(new Error(JSON.stringify(validation.errors.all())));
-  }
+  const messages = {
+    range: '{{field}} must be in the range {{argument.0}} to {{argument.1}}',
+  };
+  Promise.resolve().then(() => validator.validateAll(connectionParams, dbConnSchema, messages))
+    .then(result => done())
+    .catch(error => {
+      err(new Error(JSON.stringify(error)));
+      done();
+    });
 }
 
 module.exports = (Dsn) => {
   const connectors = Object.keys(connectionSchema);
   Dsn.validatesInclusionOf('connector', {'in': connectors});
-  Dsn.validate('connectionParams', validateConnectionPar, {message: 'connection parameters are invalid'});
+  Dsn.validateAsync('connectionParams', validateConnectionPar, {message: 'connection parameters are invalid'});
 };
 
