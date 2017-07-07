@@ -13,6 +13,10 @@
       "type": "string",
       "required": true
     },
+    "connectionParams": {
+      "type": "object",
+      "required": true
+    },
     "displayName": {
       "type": "string"
     }

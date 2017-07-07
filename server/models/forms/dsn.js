@@ -1,28 +1,32 @@
+'use strict';
+
 const dsnSchema = {
   // MySQL
   mysql: {
     host: {
       type: 'string',
-      required: true
+      required: true,
     },
     port: {
       type: 'number',
-      required: true
+      required: true,
     },
     username: {
       type: 'string',
-      required: true
+      required: true,
     },
     password: {
       type: 'string',
-      required: true
-    }
+      required: true,
+    },
   },
   // SqLite
   sqlite3: {
     filePath: {
       type: 'string',
-      required: true
-    }
-  }
+      required: true,
+    },
+  },
 }
+
+module.exports = dsnSchema
