@@ -9,10 +9,10 @@ const dsnSchema = {
       password: 'required|string',
     },
     fields: [
-        {label: 'Host', name: 'host', type: 'text', placeholder: 'Enter Host', dflt: 'localhost'},
-        {label: 'Port', name: 'port', type: 'number', placeholder: 'Enter Port', dflt: 3306},
-        {label: 'User', name: 'user', type: 'text', placeholder: 'Enter User'},
-        {label: 'Password', name: 'password', type: 'text', placeholder: 'Enter Password'},
+        {name: 'host', label: 'Host', type: 'text', placeholder: 'Enter Host', dflt: 'localhost'},
+        {name: 'port', label: 'Port', type: 'number', placeholder: 'Enter Port', dflt: 3306},
+        {name: 'username', label: 'User', type: 'text', placeholder: 'Enter Username'},
+        {name: 'password', label: 'Password', type: 'text', placeholder: 'Enter Password'},
     ],
     sanitizationRules: {
     },
@@ -22,7 +22,7 @@ const dsnSchema = {
       filePath: 'required|string',
     },
     fields: [
-      {label: 'Filepath', name: 'filePath', type: 'text', placeholder: 'Enter Filepath'},
+      {name: 'filePath', label: 'Filepath', type: 'text', placeholder: 'Enter Filepath'},
     ],
     sanitizationRules: {
     },
