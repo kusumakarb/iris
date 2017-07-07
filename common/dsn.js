@@ -1,32 +1,75 @@
 'use strict';
 
-const dsnSchema = {
+import {extendDeep} from "../lib/extend";
+
+const dsnParamsRules = {
   mysql: {
     rules: {
-      host: 'required|string',
-      port: 'required|integer|range:0,65536',
-      username: 'required|string',
-      password: 'required|string',
+      'dsnParams.host': 'required|string',
+      'dsnParams.port': 'required|integer|range:0,65536',
+      'dsnParams.username': 'required|string',
+      'dsnParams.password': 'required|string',
+    },
+    sanitizationRules: {
+      'dsnParams.port': 'to_int'
     },
     fields: [
-        {name: 'host', label: 'Host', type: 'text', placeholder: 'Enter Host', dflt: 'localhost'},
-        {name: 'port', label: 'Port', type: 'number', placeholder: 'Enter Port', dflt: 3306},
-        {name: 'username', label: 'User', type: 'text', placeholder: 'Enter Username'},
-        {name: 'password', label: 'Password', type: 'text', placeholder: 'Enter Password'},
+      {
+        name: 'dsnParams.host',
+        type: 'text',
+        label: 'Host',
+        placeholder: 'Enter Host',
+        default: 'localhost',
+        info: 'Name or IP address of the server host',
+      },
+      {
+        name: 'dsnParams.port',
+        type: 'number',
+        label: 'Port',
+        placeholder: 'Enter Port',
+        default: 3306,
+        info: 'TCP/IP port (1-65535)',
+      },
+      {
+        name: 'dsnParams.username',
+        type: 'text',
+        label: 'User',
+        placeholder: 'Enter Username',
+        info: 'Name of the user to connect with.',
+      },
+      {
+        name: 'dsnParams.password',
+        type: 'text',
+        label: 'Password',
+        placeholder: 'Enter Password',
+        info: 'The user\'s password.',
+      },
     ],
-    sanitizationRules: {
-    },
   },
   sqlite3: {
     rules: {
-      filePath: 'required|string',
+      'dsnParams.filePath': 'required|string',
     },
     fields: [
-      {name: 'filePath', label: 'Filepath', type: 'text', placeholder: 'Enter Filepath'},
-    ],
-    sanitizationRules: {
-    },
+      {
+        name: 'dsnParams.filePath',
+        type: 'file',
+        label: 'File location',
+        placeholder: 'Enter File Location',
+      },
+    ]
   },
 };
 
-module.exports = dsnSchema;
+const dsnRules = {
+  rules: {
+    connector: 'required|in:' + Object.keys(dsnParamsRules),
+  },
+  messages: {
+    range: '{{field}} must be in the range {{argument.0}} to {{argument.1}} exclusive',
+  }
+}
+
+export function getDsnFormRules(connector) {
+  return extendDeep({}, dsnRules, dsnParamsRules[connector])
+}

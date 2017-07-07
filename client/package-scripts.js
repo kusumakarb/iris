@@ -12,11 +12,11 @@ module.exports = {
         development: {
           default: series(
             'nps webpack.build.before',
-            'webpack --progress -d'
+            'webpack-dashboard -- webpack --progress -d'
           ),
           extractCss: series(
             'nps webpack.build.before',
-            'webpack --progress -d --env.extractCss'
+            'webpack-dashboard -- webpack --progress -d --env.extractCss'
           ),
           serve: series.nps(
             'webpack.build.development',
@@ -26,11 +26,11 @@ module.exports = {
         production: {
           inlineCss: series(
             'nps webpack.build.before',
-            'webpack --progress -p --env.production'
+            'webpack-dashboard -- webpack --progress -p --env.production'
           ),
           default: series(
             'nps webpack.build.before',
-            'webpack --progress -p --env.production --env.extractCss'
+            'webpack-dashboard -- webpack --progress -p --env.production --env.extractCss'
           ),
           serve: series.nps(
             'webpack.build.production',
@@ -39,9 +39,9 @@ module.exports = {
         }
       },
       server: {
-        default: `webpack-dev-server -d --devtool '#source-map' --inline --env.server`,
-        extractCss: `webpack-dev-server -d --devtool '#source-map' --inline --env.server --env.extractCss`,
-        hmr: `webpack-dev-server -d --devtool '#source-map' --inline --hot --env.server`
+        default: `webpack-dashboard -- webpack-dev-server -d --devtool '#source-map' --inline --env.server`,
+        extractCss: `webpack-dashboard -- webpack-dev-server -d --devtool '#source-map' --inline --env.server --env.extractCss`,
+        hmr: `webpack-dashboard -- webpack-dev-server -d --devtool '#source-map' --inline --hot --env.server`
       },
     },
     serve: 'http-server dist --cors',

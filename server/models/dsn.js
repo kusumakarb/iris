@@ -6,13 +6,13 @@ const validator = require('indicative');
 const connectors = Object.keys(dsnSchema);
 
 function validateConnectionPar(err, done) {
-  const {connector, connectionParams} = this;
+  const {connector, dsnParams} = this;
   if (connectors.indexOf(connector) != -1) {
     const dbConnSchema = dsnSchema[connector].rules;
     const messages = {
       range: '{{field}} must be in the range {{argument.0}} to {{argument.1}} exclusive',
     };
-    Promise.resolve().then(() => validator.validateAll(connectionParams, dbConnSchema, messages))
+    Promise.resolve().then(() => validator.validateAll(dsnParams, dbConnSchema, messages))
       .then(result => done())
       .catch(error => {
         err(new Error(JSON.stringify(error)));
@@ -26,6 +26,6 @@ function validateConnectionPar(err, done) {
 
 module.exports = (Dsn) => {
   Dsn.validatesInclusionOf('connector', {'in': connectors});
-  Dsn.validateAsync('connectionParams', validateConnectionPar, {message: 'connection parameters are invalid'});
+  Dsn.validateAsync('dsnParams', validateConnectionPar, {message: 'connection parameters are invalid'});
 };
 

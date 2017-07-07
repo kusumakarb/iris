@@ -2,6 +2,7 @@ const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const DashboardPlugin = require('webpack-dashboard/plugin');
 const {AureliaPlugin} = require('aurelia-webpack-plugin');
 const {optimize: {CommonsChunkPlugin}, ProvidePlugin, DefinePlugin, IgnorePlugin} = require('webpack')
 const {TsConfigPathsPlugin, CheckerPlugin} = require('awesome-typescript-loader');
@@ -101,6 +102,7 @@ module.exports = ({production, server, extractCss, coverage} = {}) => ({
     ]
   },
   plugins: [
+    new DashboardPlugin(),
     new AureliaPlugin(),
     new ProvidePlugin({
       'Promise': 'bluebird',
