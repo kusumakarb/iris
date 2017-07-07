@@ -13,17 +13,9 @@
       "type": "string",
       "required": true
     },
-    "host": {
-      "type": "string"
-    },
-    "port": {
-      "type": "number"
-    },
-    "username": {
-      "type": "string"
-    },
-    "password": {
-      "type": "string"
+    "connectionParams": {
+      "type": "object",
+      "required": true
     },
     "displayName": {
       "type": "string"
