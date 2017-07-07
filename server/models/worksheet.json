@@ -1,5 +1,5 @@
 {
-  "name": "Worksheet",
+  "name": "worksheet",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
@@ -27,17 +27,17 @@
   "relations": {
     "userId": {
       "type": "belongsTo",
-      "model": "User",
+      "model": "user",
       "foreignKey": "userId"
     },
     "projectId": {
       "type": "belongsTo",
-      "model": "Project",
+      "model": "project",
       "foreignKey": "projectId"
     },
     "workbookId": {
       "type": "belongsTo",
-      "model": "Workbook",
+      "model": "workbook",
       "foreignKey": "workbookId"
     }
   },

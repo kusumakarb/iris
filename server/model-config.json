@@ -14,12 +14,16 @@
       "../node_modules/loopback-ds-timestamp-mixin"
     ]
   },
-  "User": {
-    "dataSource": "db"
-  },
   "AccessToken": {
     "dataSource": "db",
-    "public": false
+    "public": true,
+    "relations": {
+      "user": {
+        "type": "belongsTo",
+        "model": "user",
+        "foreignKey": "userId"
+      }
+    }
   },
   "ACL": {
     "dataSource": "db",
@@ -36,31 +40,35 @@
     "dataSource": "db",
     "public": false
   },
-  "Project": {
+  "user": {
     "dataSource": "db",
     "public": true
   },
-  "Workbook": {
+  "project": {
     "dataSource": "db",
     "public": true
   },
-  "Worksheet": {
+  "workbook": {
     "dataSource": "db",
     "public": true
   },
-  "Dsn": {
+  "worksheet": {
     "dataSource": "db",
     "public": true
   },
-  "DsnDb": {
+  "dsn": {
     "dataSource": "db",
     "public": true
   },
-  "DsnTable": {
+  "dsnDb": {
     "dataSource": "db",
     "public": true
   },
-  "DsnColumn": {
+  "dsnTable": {
+    "dataSource": "db",
+    "public": true
+  },
+  "dsnColumn": {
     "dataSource": "db",
     "public": true
   }

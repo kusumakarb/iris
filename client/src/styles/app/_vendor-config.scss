@@ -57,3 +57,14 @@ button, input, optgroup, select, textarea {
 
 }
 
+///////////////////////////////////////////////////////////////////////////////
+// Aurelia Dialog
+///////////////////////////////////////////////////////////////////////////////
+ux-dialog-overlay.active {
+  background-color: black;
+  opacity: .5 !important;
+}
+
+ux-dialog-container .modal{
+  display: block !important;
+}

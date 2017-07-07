@@ -1,13 +1,13 @@
 'use strict';
 
-module.exports = app => {
+module.exports = server => {
 
-  const appDataSource = app.dataSources.db;
+  const appDataSource = server.dataSources.db;
 
   const autoupdateTables = () => {
 
-    const builtInModels = ['User', 'AccessToken', 'ACL', 'RoleMapping', 'Role'];
-    const models = ['Project', 'Workbook', 'Worksheet', 'Dsn', 'DsnDb', 'DsnTable', 'DsnColumn'].concat(builtInModels);
+    const builtInModels = ['AccessToken', 'ACL', 'RoleMapping', 'Role'];
+    const models = ['dsn', 'dsnColumn', 'dsnDb', 'dsnTable', 'project', 'user', 'workbook', 'worksheet'].concat(builtInModels);
 
     models.forEach(model => {
       appDataSource.autoupdate(model, err => {

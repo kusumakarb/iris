@@ -8,21 +8,42 @@
  |--------------------------------------------------------------------------
 */
 
-.bg-nav-light{
+.bg-nav-light {
   background-color: lighten($brand-primary, 37%);
 }
-.bg-nav-light2{
+
+.bg-nav-light2 {
   background-color: lighten($brand-primary, 40%);
 }
 
 .navbar-underline {
+
   padding-bottom: 0;
+
   $border-width: 4px;
-  .nav-link:hover {
-    border-bottom: $border-width solid $border-color;
+
+  .nav-link {
+    position: relative;
+    text-decoration: none;
   }
-  .nav-link.active {
-    border-bottom: $border-width solid $brand-primary;
+  .nav-link:before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: $border-width;
+    bottom: 0;
+    left: 0;
+    background-color: $border-color;
+    visibility: hidden;
+    transform: scaleX(0);
+    transition: all 0.3s ease-in-out 0s;
+  }
+  .nav-link:hover:before, .nav-link.active:before {
+    visibility: visible;
+    transform: scaleX(1);
+  }
+  .nav-link.active:before {
+    background-color: $brand-primary;
   }
 }
 

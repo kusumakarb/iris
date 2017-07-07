@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "A starter kit for building a standard navigation-style app with Aurelia and Webpack.",
   "main": "dist/app.bundle.js",
-  "author": "Gowrav Shekar <gowrav@scienaptic.com>",
+  "author": "Gowrav Shekar <gowravshekar@googlemail.com>",
   "license": "CC0-1.0",
   "engines": {
     "node": ">= 6.0.0"
@@ -48,6 +48,7 @@
   "dependencies": {
     "aurelia-api": "^3.1.1",
     "aurelia-bootstrapper": "2.1.1",
+    "aurelia-dialog": "^1.0.0-rc.1.0.3",
     "aurelia-fetch-client": "1.1.2",
     "aurelia-framework": "1.1.2",
     "aurelia-history-browser": "1.0.0",

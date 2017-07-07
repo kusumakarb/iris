@@ -1,0 +1,65 @@
+{
+  "name": "user",
+  "base": "User",
+  "idInjection": false,
+  "options": {
+    "validateUpsert": false
+  },
+  "mixins": {
+    "TimeStamp": true
+  },
+  "properties": {
+    "lastLoginAt": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "accessTokens": {
+      "model": "AccessToken",
+      "type": "hasMany",
+      "foreignKey": "userId",
+      "options": {
+        "disableInclude": true
+      }
+    },
+    "projects": {
+      "model": "project",
+      "type": "hasMany",
+      "foreignKey": "userId"
+    },
+    "workbooks": {
+      "model": "workbook",
+      "type": "hasMany",
+      "foreignKey": "userId"
+    },
+    "worksheets": {
+      "model": "worksheet",
+      "type": "hasMany",
+      "foreignKey": "userId"
+    },
+    "dsns": {
+      "model": "dsn",
+      "type": "hasMany",
+      "foreignKey": "userId"
+    },
+    "dsnDbs": {
+      "model": "dsnDb",
+      "type": "hasMany",
+      "foreignKey": "userId"
+    },
+    "dsnTables": {
+      "model": "dsnTable",
+      "type": "hasMany",
+      "foreignKey": "userId"
+    },
+    "dsnColumns": {
+      "model": "dsnColumn",
+      "type": "hasMany",
+      "foreignKey": "userId"
+    }
+  },
+  "acls": [],
+  "methods": {
+  }
+}
