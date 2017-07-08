@@ -18,8 +18,7 @@ function validateConnectionPar(err, done) {
         err(new Error(JSON.stringify(error)));
         done();
       });
-  }
-  else{
+  } else {
     done();
   }
 }

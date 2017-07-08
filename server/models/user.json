@@ -16,50 +16,49 @@
   "validations": [],
   "relations": {
     "accessTokens": {
-      "model": "AccessToken",
       "type": "hasMany",
+      "model": "AccessToken",
       "foreignKey": "userId",
       "options": {
         "disableInclude": true
       }
     },
     "projects": {
-      "model": "project",
       "type": "hasMany",
+      "model": "project",
       "foreignKey": "userId"
     },
     "workbooks": {
-      "model": "workbook",
       "type": "hasMany",
+      "model": "workbook",
       "foreignKey": "userId"
     },
     "worksheets": {
-      "model": "worksheet",
       "type": "hasMany",
+      "model": "worksheet",
       "foreignKey": "userId"
     },
     "dsns": {
-      "model": "dsn",
       "type": "hasMany",
+      "model": "dsn",
       "foreignKey": "userId"
     },
     "dsnDbs": {
-      "model": "dsnDb",
       "type": "hasMany",
+      "model": "dsnDb",
       "foreignKey": "userId"
     },
     "dsnTables": {
-      "model": "dsnTable",
       "type": "hasMany",
+      "model": "dsnTable",
       "foreignKey": "userId"
     },
     "dsnColumns": {
-      "model": "dsnColumn",
       "type": "hasMany",
+      "model": "dsnColumn",
       "foreignKey": "userId"
     }
   },
   "acls": [],
-  "methods": {
-  }
+  "methods": {}
 }
