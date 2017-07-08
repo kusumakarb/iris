@@ -4,17 +4,20 @@
     <div class="modal-dialog modal-lg" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <h5 class="modal-title" id="exampleModalLabel">Save Data Source - ${dataSourceName}</h5>
           <button type="button" click.trigger="controller.cancel()" class="close" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
-          ...
+          <div repeat.for="field of dsnFormRules.fields" class="form-group">
+            <label for="saveDataSource_${field.name}"><strong>${field.label}</strong> <sup if.bind="field.info" tooltip title="${field.info}" data-placement="right" class="text-muted"><small class="zmdi zmdi-info-outline"></small></sup></label>
+            <input type="${field.type}" focus.one-time="$first" class="form-control" id="saveDataSource_${field.name}" value.bind="formData[field.name]" keyup.delegate="validateForm()" placeholder="${field.placeholder}">
+          </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
+          <button type="button" tabindex="-1" class="btn btn-secondary" click.trigger="controller.cancel()">Close</button>
+          <button type="button" class="btn btn-primary" disabled.bind="!isFormValid" click.trigger="saveDataSource()">Save</button>
         </div>
       </div>
     </div>

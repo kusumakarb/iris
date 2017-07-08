@@ -5,7 +5,7 @@ import {SaveDataSource} from "./modals/save-data-source";
 interface DataSourceItem {
   name: string;
   image: string;
-  connection?: string;
+  connector?: string;
 }
 
 @autoinject()
@@ -33,7 +33,7 @@ export class AddDataSource {
     {
       name: 'MySQL',
       image: 'mysql.png',
-      connection: 'mysql'
+      connector: 'mysql'
     },
     {
       name: 'MariaDB',
@@ -75,7 +75,8 @@ export class AddDataSource {
     this.dialogService.open({
       viewModel: SaveDataSource,
       model: {
-        connection: dataSource.connection
+        name: dataSource.name,
+        connector: dataSource.connector
       }
     })
   }
