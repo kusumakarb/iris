@@ -7,7 +7,6 @@ const validator = require('indicative');
 function validateConnectionPar(err, done) {
   if (connectors.indexOf(this.connector) != -1) {
     const dsnValidationObj = getDsnFormRules(this.connector);
-    console.log(dsnValidationObj.rules, dsnValidationObj.messages);
     Promise.resolve().then(() => validator.validateAll(this, dsnValidationObj.rules, dsnValidationObj.messages))
       .then(result => done())
       .catch(error => {
