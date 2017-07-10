@@ -1,6 +1,6 @@
 'use strict';
 
-import {extendDeep} from "../lib/extend";
+const {extendDeep} = require('../lib/extend');
 
 const dsnParamsRules = {
   mysql: {
@@ -11,7 +11,7 @@ const dsnParamsRules = {
       'dsnParams.password': 'required|string',
     },
     sanitizationRules: {
-      'dsnParams.port': 'to_int'
+      'dsnParams.port': 'to_int',
     },
     fields: [
       {
@@ -61,15 +61,20 @@ const dsnParamsRules = {
   },
 };
 
+const connectors = Object.keys(dsnParamsRules);
+
 const dsnRules = {
   rules: {
-    connector: 'required|in:' + Object.keys(dsnParamsRules),
+    connector: 'required|in:' + connectors,
   },
   messages: {
     range: '{{field}} must be in the range {{argument.0}} to {{argument.1}} exclusive',
-  }
+  },
 }
 
-export function getDsnFormRules(connector) {
-  return extendDeep({}, dsnRules, dsnParamsRules[connector])
-}
+
+function getDsnFormRules(connector) {
+  return extendDeep({}, dsnRules, dsnParamsRules[connector]);
+};
+
+module.exports = {getDsnFormRules, connectors};
